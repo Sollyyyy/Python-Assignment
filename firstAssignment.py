@@ -26,6 +26,8 @@ class Application():
             newtext = int(self.set_text_field.get())
         except:
             return
+        if newtext < 0 or newtext > 100:
+            return
         mytext=''
         # print(lives)
         global lives
@@ -37,7 +39,7 @@ class Application():
         elif newtext < x and lives>0:
             mytext = 'Higher , Your lives: '+str(lives)
             self.text.config(text=mytext)
-        elif newtext == x and lives > 0:
+        elif newtext == x and lives >= 0:
             self.text.config(text='Correct')
             self.set_button.destroy()
             
